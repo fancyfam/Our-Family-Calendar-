@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Our Family Calendar ❤️</title>
+
+<style>
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: #fff4e6;
+  color: #222;
+}
+
+.container {
+  max-width: 1200px;
+  margin: auto;
+  padding: 20px;
+}
+
+.header {
+  text-align: center;
+  background: linear-gradient(#ff9d2e, #ff7518);
+  padding: 25px 10px;
+  border-radius: 20px 20px 0 0;
+}
+
+.header h1 {
+  margin: 0;
+  font-size: 42px;
+}
+
+.header h2 {
+  margin: 5px 0 0;
+  font-size: 28px;
+}
+
+.legend {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 12px;
+  background: white;
+  padding: 14px;
+  border: 3px solid #ff8c24;
+}
+
+.legend span {
+  font-weight: bold;
+}
+
+.controls {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 0;
+}
+
+button {
+  border: none;
+  border-radius: 10px;
+  padding: 12px 16px;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.month-button {
+  background: #ff8c24;
+  color: white;
+}
+
+.add-button {
+  background: #ff4f8b;
+  color: white;
+}
+
+.calendar {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  border-left: 2px solid #333;
+  border-top: 2px solid #333;
+  background: white;
+}
+
+.day-name {
+  background: #ff8c24;
+  font-weight: bold;
+  text-align: center;
+  padding: 12px 5px;
+  border-right: 2px solid #333;
+  border-bottom: 2px solid #333;
+}
+
+.day {
+  min-height: 125px;
+  padding: 8px;
+  border-right: 2px solid #333;
+  border-bottom: 2px solid #333;
+  cursor: pointer;
+  position: relative;
+}
+
+.day:hover {
+  background: #fff8ee;
+}
+
+.number {
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.empty {
+  background: #faf6f0;
+}
+
+.event {
+  margin-top: 6px;
+  padding: 5px;
+  border-radius: 6px;
+  font-size: 12px;
+  font-weight: bold;
+}
+
+.couple { background: #ffc5da; }
+.mywork { background: #dfc2ff; }
+.hiswork { background: #bde1ff; }
+.family { background: #c9efc1; }
+.kids { background: #ffd3a5; }
+.appointment { background: #ffb6b6; }
+.reminder { background: #dddddd; }
+
+.footer {
+  text-align: center;
+  padding: 20px;
+  font-weight: bold;
+  color: #8c4818;
+}
+
+@media (max-width: 700px) {
+
+  .container {
+    padding: 5px;
+  }
+
+  .header h1 {
+    font-size: 28px;
+  }
+
+  .header h2 {
+    font-size: 22px;
+  }
+
+  .day-name {
+    font-size: 11px;
+    padding: 8px 2px;
+  }
+
+  .day {
+    min-height: 85px;
+    padding: 4px;
+  }
+
+  .number {
+    font-size: 14px;
+  }
+
+  .event {
+    font-size: 9px;
+    padding: 3px;
+  }
+
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+  <div class="header">
+    <h1>🎃 Our Family Calendar ❤️</h1>
+    <h2>October 2026</h2>
+  </div>
+
+  <div class="legend">
+    <span>🩷 Couple Time</span>
+    <span>💜 My Work</span>
+    <span>💙 His Work</span>
+    <span>💚 Family</span>
+    <span>🧡 JJ / Kid Events</span>
+    <span>❤️ Appointments</span>
+    <span>🩶 Bills / Reminders</span>
+  </div>
+
+  <div class="controls">
+
+    <button class="month-button">
+      ← September
+    </button>
+
+    <button class="add-button" onclick="addEvent()">
+      + Add Event
+    </button>
+
+    <button class="month-button">
+      November →
+    </button>
+
+  </div>
+
+  <div class="calendar">
+
+    <div class="day-name">Sunday</div>
+    <div class="day-name">Monday</div>
+    <div class="day-name">Tuesday</div>
+    <div class="day-name">Wednesday</div>
+    <div class="day-name">Thursday</div>
+    <div class="day-name">Friday</div>
+    <div class="day-name">Saturday</div>
+
+    <div class="day empty"></div>
+    <div class="day empty"></div>
+    <div class="day empty"></div>
+    <div class="day empty"></div>
+
+    <div class="day"><span class="number">1</span></div>
+    <div class="day"><span class="number">2</span></div>
+    <div class="day"><span class="number">3</span></div>
+
+    <div class="day"><span class="number">4</span></div>
+    <div class="day"><span class="number">5</span></div>
+    <div class="day"><span class="number">6</span></div>
+    <div class="day"><span class="number">7</span></div>
+    <div class="day"><span class="number">8</span></div>
+    <div class="day"><span class="number">9</span></div>
+    <div class="day"><span class="number">10</span></div>
+
+    <div class="day"><span class="number">11</span></div>
+    <div class="day"><span class="number">12</span></div>
+    <div class="day"><span class="number">13</span></div>
+    <div class="day"><span class="number">14</span></div>
+    <div class="day"><span class="number">15</span></div>
+    <div class="day"><span class="number">16</span></div>
+    <div class="day"><span class="number">17</span></div>
+
+    <div class="day"><span class="number">18</span></div>
+    <div class="day"><span class="number">19</span></div>
+    <div class="day"><span class="number">20</span></div>
+    <div class="day"><span class="number">21</span></div>
+    <div class="day"><span class="number">22</span></div>
+    <div class="day"><span class="number">23</span></div>
+    <div class="day"><span class="number">24</span></div>
+
+    <div class="day"><span class="number">25</span></div>
+    <div class="day"><span class="number">26</span></div>
+    <div class="day"><span class="number">27</span></div>
+    <div class="day"><span class="number">28</span></div>
+    <div class="day"><span class="number">29</span></div>
+    <div class="day"><span class="number">30</span></div>
+    <div class="day"><span class="number">31</span></div>
+
+  </div>
+
+  <div class="footer">
+    🍂 Our plans • Our memories • Our family ❤️
+  </div>
+
+</div>
+
+<script>
+
+function addEvent() {
+
+  const date = prompt("What date is the event? Example: October 17");
+
+  if (!date) return;
+
+  const title = prompt("What are we doing?");
+
+  if (!title) return;
+
+  const category = prompt(
+    "Choose a category:\n\n" +
+    "1 - Couple Time\n" +
+    "2 - My Work\n" +
+    "3 - His Work\n" +
+    "4 - Family\n" +
+    "5 - JJ / Kid Event\n" +
+    "6 - Appointment\n" +
+    "7 - Bill / Reminder"
+  );
+
+  let categoryName = "";
+
+  switch(category) {
+    case "1":
+      categoryName = "🩷 Couple Time";
+      break;
+    case "2":
+      categoryName = "💜 My Work";
+      break;
+    case "3":
+      categoryName = "💙 His Work";
+      break;
+    case "4":
+      categoryName = "💚 Family";
+      break;
+    case "5":
+      categoryName = "🧡 JJ / Kid Event";
+      break;
+    case "6":
+      categoryName = "❤️ Appointment";
+      break;
+    case "7":
+      categoryName = "🩶 Reminder";
+      break;
+    default:
+      categoryName = "Event";
+  }
+
+  alert(
+    "Event created for testing!\n\n" +
+    date + "\n" +
+    title + "\n" +
+    categoryName +
+    "\n\nNext we'll connect the calendar so events actually save."
+  );
+}
+
+</script>
+
+</body>
+</html>
